@@ -2,7 +2,7 @@
 
 const Donationpage = ({cart}) => {
 
-    const { id, Picture, Title, Price, Category, Category_bg, Card_bg, Text_button_bg } =
+    const {Picture, Title, Price, Category, Category_bg, Card_bg, Text_button_bg } =
     cart || {};
 
 

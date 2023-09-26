@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import DonationCart from "../Cart/DonationCart/DonationCart";
 import Donationpage from "../DonationPage/Donationpage";
 
 const Donation = () => {
     const [donations, setDonations] = useState([]);
     const [notFound, setNotFound] = useState(false);
+    const [isShow, setIsShow] = useState(false);
 
     useEffect(() => {
         const donationItems = JSON.parse(localStorage.getItem('favorites'));
@@ -25,9 +25,16 @@ const Donation = () => {
             <div>
                 <div className="grid md:grid-cols-2 gap-6">
                     {
-donations.map(cart => <Donationpage key={cart.id} cart={cart}></Donationpage>)
+                   isShow?  donations.map(cart => <Donationpage key={cart.id} cart={cart}></Donationpage>)
+                   :  donations.slice(0,4).map(cart => <Donationpage key={cart.id} cart={cart}></Donationpage>)
                     }
                 </div>
+
+               <div className="flex justify-center items-center mt-12">
+                 <button onClick={() => setIsShow(!isShow)} className="px-3 py-2 bg-[#009444] rounded-md text-white">
+                    {!isShow? 'See All': 'See less'}
+                 </button>
+                 </div>
             </div>
           }
         </div>

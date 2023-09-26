@@ -18,7 +18,7 @@ const Card = ({ card }) => {
         <div className="py-3 px-16 lg:px-4">
           <button
             style={{ backgroundColor: Category_bg, color: Text_button_bg }}
-            className="px-2 py-1"
+            className="px-2 py-1 rounded-md"
           >
             {Category}
           </button>
